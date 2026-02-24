@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from db import SessionLocal, init_db
 import models
@@ -6,6 +7,25 @@ from schemas import AccountCreate, AccountUpdate, AccountOut
 from schemas_trades import TradeCreate, TradeUpdate, TradeOut
 
 app = FastAPI(title="Trading Journal API")
+
+# Can Angular dev-server
+origins = [
+    "http://localhost:4200",
+    "http://127.0.0.1:4200"    # на всякий случай
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # откуда разрешены запросы
+    allow_credentials=True,
+    allow_methods=["*"],    # GET, POST, PUT, DELETE и т.д.
+    allow_headers=["*"],
+)
+
+# Пример простого endpoint
+@app.get("/deals")
+def get_deals():
+    return [{"id": 1, "instrument": "EUR/USD", "profit": 50}]
 
 # Dependency to get DB session
 
