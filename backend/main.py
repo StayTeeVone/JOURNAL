@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from db import engine
 import models
 from routers import trade
+from routers import auth, trade  # правильно
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -22,4 +23,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(auth.router)
 app.include_router(trade.router)
