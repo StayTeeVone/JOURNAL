@@ -6,9 +6,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
-  template: `
-    <h1>HELLO FROM APP</h1>
-    <router-outlet></router-outlet>
-  `
+  // template: `
+  //   <router-outlet></router-outlet>
+  // `
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {}

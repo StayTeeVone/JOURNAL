@@ -8,15 +8,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule],  // <- NgModel не пишем сюда!
-  // template: `
-  //   <h2>Login</h2>
-  //   <div *ngIf="error" style="color:red">{{ error }}</div>
-  //   <input type="email" [(ngModel)]="email" placeholder="Email" /><br />
-  //   <input type="password" [(ngModel)]="password" placeholder="Password" /><br />
-  //   <button (click)="login()">Login</button><br />
-  //   <a routerLink="/register">Зарегистрироваться</a>
-  // `
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   email = '';

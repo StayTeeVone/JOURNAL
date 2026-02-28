@@ -8,15 +8,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule],  // <- только модули
-  template: `
-    <h2>Register</h2>
-    <div *ngIf="error" style="color:red">{{ error }}</div>
-    <input type="text" [(ngModel)]="username" placeholder="Username" /><br />
-    <input type="email" [(ngModel)]="email" placeholder="Email" /><br />
-    <input type="password" [(ngModel)]="password" placeholder="Password" /><br />
-    <button (click)="register()">Register</button><br />
-    <a routerLink="/login">Login</a>
-  `
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   username = '';
@@ -35,5 +28,9 @@ export class RegisterComponent {
       next: () => this.router.navigate(['/login']),
       error: err => this.error = err.error.detail
     });
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
   }
 }
