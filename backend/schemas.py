@@ -1,20 +1,25 @@
 from pydantic import BaseModel
-from typing import Optional
 from datetime import datetime
+from typing import Optional
 
-class AccountBase(BaseModel):
-    name: str
-    balance: float
 
-class AccountCreate(AccountBase):
+class TradeBase(BaseModel):
+    id_prop_account: int
+    id_asset: int
+    direction: str
+    status: str
+    pnl_amount: Optional[float] = None
+    open_date: Optional[datetime] = None
+    closed_date: Optional[datetime] = None
+    description: Optional[str] = None
+
+
+class TradeCreate(TradeBase):
     pass
 
-class AccountUpdate(BaseModel):
-    name: Optional[str] = None
-    balance: Optional[float] = None
 
-class AccountOut(AccountBase):
-    id: int
-    created_at: Optional[datetime]
+class TradeResponse(TradeBase):
+    id_trade: int
+
     class Config:
-        orm_mode = True
+        from_attributes = True
