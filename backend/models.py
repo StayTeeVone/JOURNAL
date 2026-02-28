@@ -1,15 +1,19 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Enum, DECIMAL, Text
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Enum, DECIMAL, Text, func
+from sqlalchemy.orm import relationship, declarative_base
 from db import Base
+from datetime import datetime
 
+Base = declarative_base()
 
 class User(Base):
     __tablename__ = "user"
 
     id_user = Column(Integer, primary_key=True, index=True)
     username = Column(String(20), nullable=False)
-    email = Column(String(85), unique=True, nullable=False)
-    password_hash = Column(String(255), nullable=False)
+    email = Column(String(85), nullable=False, unique=True, index=True)
+    password_hash = Column(String(255), nullable=False)  # <--- название должно совпадать
+    created_at = Column(DateTime(timezone=True), default=datetime.utcnow, server_default=func.now())
+    deleted_at = Column(DateTime, nullable=True)
 
 
 class Asset(Base):
