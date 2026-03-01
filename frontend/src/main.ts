@@ -15,6 +15,7 @@ import { AnalysisComponent } from './app/pages/analysis/analysis.component';
 import { BacktestComponent } from './app/pages/backtest/backtest.component';
 import { CalendarComponent } from './app/pages/calendar/calendar.component';
 import { SettingsComponent } from './app/pages/settings/settings.component';
+import { AuthGuard } from './app/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardLayoutComponent,
+    canActivate: [AuthGuard],  // <- добавляем защиту маршрута
     children: [
       { path: 'trade', component: TradeComponent },
       { path: 'idea', component: IdeaComponent },
@@ -36,6 +38,7 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
       { path: '', redirectTo: 'trade', pathMatch: 'full' }
     ]
+    
   },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
