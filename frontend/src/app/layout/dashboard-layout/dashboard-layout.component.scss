@@ -1,0 +1,40 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background: #111827;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  padding: 12px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: white;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #374151;
+}
+
+.sidebar a.active {
+  background: #4f46e5;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #f3f4f6;
+}
