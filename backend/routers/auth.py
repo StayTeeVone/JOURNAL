@@ -10,11 +10,6 @@ import crud
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
-class UserCreate(BaseModel):
-    username: str
-    email: EmailStr
-    password: str
-
 @router.post("/register")
 def register(user: UserCreate, db: Session = Depends(get_db)):
     # Проверяем, есть ли уже пользователь с таким email
@@ -44,4 +39,18 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, user.email)
     if not db_user or not verify_password(user.password, db_user.password_hash):
         raise HTTPException(status_code=400, detail="Invalid credentials")
-    return {"message": "Login successful", "user_id": db_user.id_user}
+    return {"message": "Login successful", "user_id": db_user.id_user, "username": db_user.username}
+
+# ME
+@router.get("/me")
+def get_me(user_id: int, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.id_user == user_id).first()
+
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    return {
+        "user_id": user.id_user,
+        "username": user.username,
+        "email": user.email
+    }

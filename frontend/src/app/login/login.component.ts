@@ -26,7 +26,9 @@ export class LoginComponent {
     }).subscribe({
       next: (res) => {
         localStorage.setItem('user_id', res.user_id.toString());
+        localStorage.setItem('username', res.username.toString());
         this.router.navigate(['/dashboard']);
+        console.log(res);
       },
       // next: () => this.router.navigate(['/dashboard']),
       error: err => this.error = err.error.detail

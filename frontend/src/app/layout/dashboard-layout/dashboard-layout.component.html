@@ -1,59 +1,63 @@
 <div class="dashboard">
    <aside class="sidebar">
+      <div class="user-profile">
+         <!-- <span class="welcome">Welcome, </span> -->
+         <img src="../../../assets/images/icon-user.png" alt="icon-user" class="user-icon">
+         <span class="name">{{ username }}</span>
+      </div>
+
       <h2>Trading Universe</h2>
 
-         <a routerLink="trade"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Trades
-         </a>
+      <a routerLink="trade"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
+         Trades
+      </a>
 
-         <a routerLink="idea"
-            routerLinkActive="active">
-            Ideas
-         </a>
+      <a routerLink="idea"
+         routerLinkActive="active">
+         Ideas
+      </a>
 
-         <a routerLink="strategy"
-            routerLinkActive="active">
-            Strategys
-         </a>
+      <a routerLink="strategy"
+         routerLinkActive="active">
+         Strategys
+      </a>
 
-         <a routerLink="document"
-            routerLinkActive="active">
-            Documents
-         </a>    
+      <a routerLink="document"
+         routerLinkActive="active">
+         Documents
+      </a>    
 
-         <a routerLink="account"
-            routerLinkActive="active">
-            Accounts
-         </a>
+      <a routerLink="account"
+         routerLinkActive="active">
+         Accounts
+      </a>
 
-         <a routerLink="analysis"
-            routerLinkActive="active">
-            Analysis
-         </a>
+      <a routerLink="analysis"
+         routerLinkActive="active">
+         Analysis
+      </a>
 
-         <a routerLink="backtest"
-            routerLinkActive="active">
-            Backtest
-         </a>
+      <a routerLink="backtest"
+         routerLinkActive="active">
+         Backtest
+      </a>
 
-         <a routerLink="calendar"
-            routerLinkActive="active">
-            Economic Calendar
-         </a>
+      <a routerLink="calendar"
+         routerLinkActive="active">
+         Economic Calendar
+      </a>
 
-         <a routerLink="settings"
-            routerLinkActive="active">
-            Settings
-         </a>
-
+      <a routerLink="settings"
+         routerLinkActive="active">
+         Settings
+      </a>
          
-         <a (click)="logout()" class="logout-btn">
-            Выйти с аккаунта
-         </a>
+      <a (click)="logout()" class="logout-btn">
+         Выйти с аккаунта
+      </a>
          
-
    </aside>
 
    <main class="content">

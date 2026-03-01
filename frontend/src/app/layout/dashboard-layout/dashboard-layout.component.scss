@@ -3,9 +3,20 @@
   height: 100vh;
 }
 
+a {
+  background: rgba(255, 255, 255, 0.096); /* Прозрачность 20-30% */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Белая обводка для границы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  backdrop-filter: blur(10px); /* Сила размытияможно 5-20px */
+  -webkit-backdrop-filter: blur(10px); /* Для Safari */
+  color: gray;
+}
+
 .sidebar {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   width: 240px;
-  background: #111827;
+  background: transparent;
   color: white;
   padding: 20px;
   display: flex;
@@ -16,36 +27,74 @@
   margin-bottom: 30px;
 }
 
+h2 {
+  color: rgb(232, 232, 232);
+  font-size: 34px;
+  font-weight: 200;
+  text-shadow: 0 0 20px rgb(43, 43, 43);
+}
+
 .sidebar a {
   padding: 12px;
   margin-bottom: 10px;
   text-decoration: none;
-  color: white;
-  border-radius: 6px;
+  font-weight: 200;
   transition: 0.2s;
 }
 
 .sidebar a:hover {
   background: #374151;
+  color: gainsboro;
 }
 
 .sidebar a.active {
-  background: #4f46e5;
+  background: #252c37;
+  color: white;
 }
 
 .content {
   flex: 1;
   padding: 30px;
-  background: #f3f4f6;
+  background: transparent;
 }
 
 .logout-btn {
   margin-top: auto;
   padding: 10px;
-  background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.096); /* Прозрачность 20-30% */
+  color: gray;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Белая обводка для границы */
+  border-radius: 15px;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  backdrop-filter: blur(10px); /* Сила размытияможно 5-20px */
+  -webkit-backdrop-filter: blur(10px); /* Для Safari */
   transition: 0.2s;
+}
+
+.name {
+  font-weight: 200;
+  font-size: 14px;
+  color: #d3d6da;
+  text-shadow: 0 0 5px #374151;
+}
+
+.user-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.038); /* Прозрачность 20-30% */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Белая обводка для границы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  backdrop-filter: blur(10px); /* Сила размытияможно 5-20px */
+  -webkit-backdrop-filter: blur(10px); /* Для Safari */
+  padding: 10px;
 }
