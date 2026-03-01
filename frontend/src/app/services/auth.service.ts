@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface LoginResponse {
+export interface LoginResponse {
   message: string;
   user_id: number;
 }
 
-interface RegisterResponse {
+export interface RegisterResponse {
   message: string;
   user_id: number;
 }
@@ -27,4 +27,9 @@ export class AuthService {
   register(username: string, email: string, password: string): Observable<RegisterResponse> {
     return this.http.post<RegisterResponse>(`${this.baseUrl}/register`, { username, email, password });
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('user_id');
+  }
+
 }
