@@ -34,6 +34,11 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('user_id');
+    localStorage.removeItem('username');
+  }
+
+  getUsername(): string | null {
+    return localStorage.getItem('username');
   }
 
 }
