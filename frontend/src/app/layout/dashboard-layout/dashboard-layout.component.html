@@ -8,50 +8,50 @@
 
       <h2>Trading Universe</h2>
 
+      <a routerLink="analysis"
+         routerLinkActive="active">
+         Статистика
+      </a>
+
       <a routerLink="trade"
          routerLinkActive="active"
          [routerLinkActiveOptions]="{ exact: true }">
-         Trades
+         Сделки
       </a>
 
       <a routerLink="idea"
          routerLinkActive="active">
-         Ideas
+         Идеи
       </a>
 
       <a routerLink="strategy"
          routerLinkActive="active">
-         Strategys
+         Стратегии
       </a>
 
       <a routerLink="document"
          routerLinkActive="active">
-         Documents
+         Документы
       </a>    
 
       <a routerLink="account"
          routerLinkActive="active">
-         Accounts
-      </a>
-
-      <a routerLink="analysis"
-         routerLinkActive="active">
-         Analysis
+         Аккаунты
       </a>
 
       <a routerLink="backtest"
          routerLinkActive="active">
-         Backtest
+         Бэктесты
       </a>
 
       <a routerLink="calendar"
          routerLinkActive="active">
-         Economic Calendar
+         Экономический календарь
       </a>
 
       <a routerLink="settings"
          routerLinkActive="active">
-         Settings
+         Настройки
       </a>
          
       <a (click)="logout()" class="logout-btn">
